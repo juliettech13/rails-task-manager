@@ -1,0 +1,9 @@
+<h1>New Task</h1>
+
+<%= form_for @task do |f| %>
+  <%= f.label :title, "Enter a title" %>
+  <%= f.text_field :title, placeholder: "Garbage" %>
+  <%= f.label :details, "Enter details" %>
+  <%= f.text_field :details, placeholder: "Taking out the garbage"%>
+  <%= f.submit "Create" %>
+<% end %>
