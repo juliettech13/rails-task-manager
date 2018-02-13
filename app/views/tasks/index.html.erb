@@ -1,7 +1,21 @@
-<h1>My tasks</h1>
+<div class="container_index">
+  <div class="index_title">
+    <h1>My tasks</h1>
+  </div>
 
-<% @tasks.each do |t| %>
-  <h2><%= link_to t.title, task_path(t) %></h2>
-<% end %>
-
+  <div class="list">
+    <% @tasks.each do |t| %>
+    <h2><%= link_to t.title, task_path(t) %></h2>
+    <h3><%= t.details %></h3>
+    <div class="deleting">
+    <h3>
+      <%= link_to task_path(t.id), method: :delete,
+      data: { confirm: "Are you sure?" }  do %>
+      <i class="fas fa-trash-alt"></i>
+    </div>
+      <% end %>
+    </h3>
+    <% end %>
+  </div>
+</div>
 

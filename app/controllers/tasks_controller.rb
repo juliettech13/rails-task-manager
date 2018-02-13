@@ -13,8 +13,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Restaurant.new(task_params)
-    @tasks.save
+    @task = Task.create(task_params)
   end
 
   def edit
@@ -26,6 +25,12 @@ class TasksController < ApplicationController
     @task.update(task_params)
   end
 
+  def destroy
+    find
+    @task.destroy
+    redirect_to root_path
+  end
+
   private
 
   def find
@@ -33,6 +38,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description)
+    params.require(:task).permit(:title, :description, :completed)
   end
 end
